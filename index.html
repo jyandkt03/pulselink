@@ -23,10 +23,53 @@
     <p class="trust">통화·문자 내용은 모으지 않아요 · 비의료 보조 도구</p>
   </main>
 
-  <!-- 화면 2: 준비 중 (첫 배포용) -->
-  <main class="screen center" id="screen-input" hidden>
-    <h2>준비 중</h2>
-    <button class="btn secondary" type="button" data-go="screen-home">처음으로</button>
+  <!-- 화면 2: 입력 -->
+  <main class="screen" id="screen-input" hidden>
+    <p class="brand">마음잇다 · 체험판</p>
+    <h2>엄마의 최근 3일은 어땠나요?</h2>
+    <p class="hint">지난 14일 동안 쌓인 엄마의 '평소'와 비교해 볼게요. 예시 상황을 눌러도 돼요.</p>
+
+    <div class="examples" role="group" aria-label="예시 상황">
+      <button type="button" class="chip" data-example="normal">평소대로</button>
+      <button type="button" class="chip" data-example="lessOut">외출이 줄었어요</button>
+      <button type="button" class="chip" data-example="noData">폰이 꺼져 있어요</button>
+      <button type="button" class="chip" data-example="trip">여행 중이에요</button>
+    </div>
+
+    <form id="recent-form">
+      <div id="day-cards"></div>
+
+      <fieldset class="card">
+        <legend>이 3일 동안 예외 사유가 있었나요?</legend>
+        <div class="seg" data-name="exception"></div>
+      </fieldset>
+
+      <button class="btn" type="submit">평소와 비교하기</button>
+    </form>
+    <button class="btn link" type="button" data-go="screen-home">처음으로</button>
+  </main>
+
+  <!-- 화면 3: 결과 -->
+  <main class="screen" id="screen-result" hidden>
+    <p class="brand">마음잇다 · 체험판</p>
+    <section id="result-card" class="result" aria-live="polite"></section>
+
+    <h3>평소와 비교</h3>
+    <div class="table-wrap">
+      <table class="compare" id="compare-table"></table>
+    </div>
+    <p class="rule" id="rule-text"></p>
+
+    <details class="baseline">
+      <summary>엄마의 평소(14일 기준선) 보기</summary>
+      <div class="table-wrap"><table class="compare" id="baseline-table"></table></div>
+      <p class="rule">설명용으로 지어낸 예시 데이터예요.</p>
+    </details>
+
+    <p class="notice">마음잇다는 의료 기기가 아닌 보조 도구예요. 쓰러짐 같은 급한 상황은 감지하지 못해요. 위급할 때는 119에 연락하세요.</p>
+
+    <button class="btn" type="button" data-go="screen-input">다시 하기</button>
+    <button class="btn link" type="button" data-go="screen-home">처음으로</button>
   </main>
 
   <script src="app.js"></script>
