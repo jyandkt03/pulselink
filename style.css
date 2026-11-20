@@ -1,0 +1,109 @@
+/* 색은 2가지: 남색(글자·기본) + 주황(강조) */
+:root {
+  --ink: #23324d;
+  --accent: #e2703a;
+  --ink-soft: rgba(35, 50, 77, 0.65);
+  --line: rgba(35, 50, 77, 0.12);
+  --accent-soft: rgba(226, 112, 58, 0.1);
+  --bg: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  line-height: 1.6;
+  word-break: keep-all;
+  -webkit-text-size-adjust: 100%;
+}
+
+.screen {
+  max-width: 480px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 48px 20px 40px;
+  display: flex;
+  flex-direction: column;
+}
+.screen[hidden] { display: none; }
+
+.brand {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 28px;
+}
+
+h1 {
+  font-size: 30px;
+  line-height: 1.35;
+  margin: 0 0 14px;
+  letter-spacing: -0.02em;
+}
+h2 {
+  font-size: 23px;
+  line-height: 1.4;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.sub {
+  font-size: 18px;
+  color: var(--ink-soft);
+  margin: 0 0 32px;
+}
+
+.empathy {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px;
+  display: grid;
+  gap: 10px;
+}
+.empathy li {
+  font-size: 17px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 10px 10px 0;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+  padding: 18px 20px;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn.secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+}
+
+.trust {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.spacer { flex: 1; }
+
+.center {
+  text-align: center;
+  justify-content: center;
+  gap: 24px;
+}
